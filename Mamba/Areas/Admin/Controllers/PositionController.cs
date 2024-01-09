@@ -65,7 +65,7 @@ namespace Mamba.Areas.Admin.Controllers
             Position existed = await _context.Positions.FirstOrDefaultAsync(c => c.Id == id);
             if (existed == null) return NotFound();
 
-            bool result = await _context.Positions.AnyAsync(x => x.Name.Trim().ToLower() == update.Name.Trim().ToLower());
+            bool result = await _context.Positions.AnyAsync(x => x.Name.Trim().ToLower() == update.Name.Trim().ToLower() && x.Id != id);
             if (result)
             {
                 ModelState.AddModelError("Name", "Is exists");

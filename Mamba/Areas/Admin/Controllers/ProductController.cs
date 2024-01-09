@@ -123,7 +123,7 @@ namespace Mamba.Areas.Admin.Controllers
             Product existed = await _context.Products.FirstOrDefaultAsync(c => c.Id == id);
             if (existed == null) return NotFound();
 
-            bool result = await _context.Products.AnyAsync(x => x.Name.Trim().ToLower() == update.Name.Trim().ToLower());
+            bool result = await _context.Products.AnyAsync(x => x.Name.Trim().ToLower() == update.Name.Trim().ToLower() && x.Id != id);
             if (result)
             {
                 update.Categories = await _context.Categories.ToListAsync();

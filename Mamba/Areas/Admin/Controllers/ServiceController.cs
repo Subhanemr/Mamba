@@ -72,7 +72,7 @@ namespace Mamba.Areas.Admin.Controllers
             Service existed = await _context.Services.FirstOrDefaultAsync(c => c.Id == id);
             if (existed == null) return NotFound();
 
-            bool result = await _context.Services.AnyAsync(x => x.Title.Trim().ToLower() == update.Title.Trim().ToLower());
+            bool result = await _context.Services.AnyAsync(x => x.Title.Trim().ToLower() == update.Title.Trim().ToLower() && x.Id != id);
             if (result)
             {
                 ModelState.AddModelError("Name", "Is exists");

@@ -68,7 +68,7 @@ namespace Mamba.Areas.Admin.Controllers
             Category existed = await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
             if (existed == null) return NotFound();
 
-            bool result = await _context.Categories.AnyAsync(x => x.Name.Trim().ToLower() == update.Name.Trim().ToLower());
+            bool result = await _context.Categories.AnyAsync(x => x.Name.Trim().ToLower() == update.Name.Trim().ToLower() && x.Id != id);
             if (result)
             {
                 ModelState.AddModelError("Name", "Is exists");

@@ -116,7 +116,7 @@ namespace Mamba.Areas.Admin.Controllers
             Team existed = await _context.Teams.FirstOrDefaultAsync(c => c.Id == id);
             if (existed == null) return NotFound();
 
-            bool result = await _context.Teams.AnyAsync(x => x.Name.Trim().ToLower() == update.Name.Trim().ToLower());
+            bool result = await _context.Teams.AnyAsync(x => x.Name.Trim().ToLower() == update.Name.Trim().ToLower() && x.Id != id);
             if (result)
             {
                 update.Positions = await _context.Positions.ToListAsync();

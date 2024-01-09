@@ -74,7 +74,7 @@ namespace Mamba.Areas.Admin.Controllers
             Settings existed = await _context.Settings.FirstOrDefaultAsync(c => c.Id == id);
             if (existed == null) return NotFound();
 
-            bool result = await _context.Settings.AnyAsync(x => x.Key.Trim().ToLower() == update.Key.Trim().ToLower());
+            bool result = await _context.Settings.AnyAsync(x => x.Key.Trim().ToLower() == update.Key.Trim().ToLower() && x.Id != id);
             if (result)
             {
                 ModelState.AddModelError("Key", "Is exists");
