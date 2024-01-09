@@ -3,6 +3,7 @@ using Mamba.DAL;
 using Mamba.Models;
 using Mamba.Utilities.Extentions;
 using Mamba.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
@@ -10,7 +11,8 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 namespace Mamba.Areas.Admin.Controllers
 {
     [Area("Admin")]
-
+    [Authorize]
+    [AutoValidateAntiforgeryToken]
     public class ProductController : Controller
     {
         private readonly AppDbContext _context;
@@ -21,7 +23,8 @@ namespace Mamba.Areas.Admin.Controllers
             _context = context;
             _env = env;
         }
-
+        [Authorize]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Index(int page=1)
         {
             if (page <= 0) return BadRequest();
@@ -36,6 +39,8 @@ namespace Mamba.Areas.Admin.Controllers
             };
             return View(vM);
         }
+        [Authorize]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Create()
         {
             CreateProductVM create = new CreateProductVM
@@ -92,6 +97,8 @@ namespace Mamba.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+        [Authorize]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Update(int id)
         {
             if (id <= 0) return BadRequest();
@@ -157,7 +164,8 @@ namespace Mamba.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
+        [Authorize]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= 0) return BadRequest();

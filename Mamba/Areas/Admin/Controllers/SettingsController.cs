@@ -1,13 +1,15 @@
 ﻿using Mamba.Areas.Admin.ViewModels;
 using Mamba.DAL;
 using Mamba.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mamba.Areas.Admin.Controllers
 {
     [Area("Admin")]
-
+    [Authorize]
+    [AutoValidateAntiforgeryToken]
     public class SettingsController : Controller
     {
         private readonly AppDbContext _context;
@@ -16,12 +18,15 @@ namespace Mamba.Areas.Admin.Controllers
         {
             _context = context;
         }
-
+        [Authorize]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Index()
         {
             ICollection<Settings> items = await _context.Settings.ToListAsync();
             return View(items);
         }
+        [Authorize]
+        [AutoValidateAntiforgeryToken]
         public IActionResult Create()
         {
             return View();
@@ -47,6 +52,8 @@ namespace Mamba.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+        [Authorize]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Update(int id)
         {
             if (id <= 0) return BadRequest();
@@ -81,7 +88,8 @@ namespace Mamba.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
+        [Authorize]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= 0) return BadRequest();

@@ -1,13 +1,15 @@
 ﻿using Mamba.Areas.Admin.ViewModels;
 using Mamba.DAL;
 using Mamba.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mamba.Areas.Admin.Controllers
 {
     [Area("Admin")]
-
+    [Authorize]
+    [AutoValidateAntiforgeryToken]
     public class ServiceController : Controller
     {
         private readonly AppDbContext _context;
@@ -16,7 +18,8 @@ namespace Mamba.Areas.Admin.Controllers
         {
             _context = context;
         }
-
+        [Authorize]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Index()
         {
             ICollection<Service> items = await _context.Services.ToListAsync();
