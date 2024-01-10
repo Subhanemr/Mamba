@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3u/zfoS1aoyuUjxX8REXK5p4r1h9cyfK4/M23vYsCW8=",
+  "Hash": "rqrYCtTFEgjjIvHSXribLZK22LnbKcU7COpkjES6uqY=",
   "Source": "Mamba",
   "BasePath": "_content/Mamba",
   "Mode": "Default",
@@ -1307,6 +1307,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\css\\style.css"
+    },
+    {
+      "Identity": "C:\\Users\\T x\\Desktop\\Mamba\\Mamba\\wwwroot\\assets\\img\\1c846496-c3fc-49f5-908e-9db841aae0dd_offer-1.jpg1c846496-c3fc-49f5-908e-9db841aae0dd_offer-1.jpg",
+      "SourceId": "Mamba",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\T x\\Desktop\\Mamba\\Mamba\\wwwroot\\",
+      "BasePath": "_content/Mamba",
+      "RelativePath": "assets/img/1c846496-c3fc-49f5-908e-9db841aae0dd_offer-1.jpg1c846496-c3fc-49f5-908e-9db841aae0dd_offer-1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\1c846496-c3fc-49f5-908e-9db841aae0dd_offer-1.jpg1c846496-c3fc-49f5-908e-9db841aae0dd_offer-1.jpg"
     },
     {
       "Identity": "C:\\Users\\T x\\Desktop\\Mamba\\Mamba\\wwwroot\\assets\\img\\about.jpg",
