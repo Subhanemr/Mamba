@@ -25,7 +25,7 @@ namespace Mamba.Areas.Admin.Controllers
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Index()
         {
-            ICollection<Team> items = await _context.Teams.ToListAsync();
+            ICollection<Team> items = await _context.Teams.Include(x => x.Position).ToListAsync();
             return View(items);
         }
         [Authorize]

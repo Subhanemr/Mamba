@@ -24,7 +24,7 @@ namespace Mamba.Areas.Admin.Controllers
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Index()
         {
-            ICollection<Category> items = await _context.Categories.ToListAsync();
+            ICollection<Category> items = await _context.Categories.Include(x => x.Products).ToListAsync();
             return View(items);
         }
         [Authorize]

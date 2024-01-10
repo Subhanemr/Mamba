@@ -23,10 +23,10 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 
 var app = builder.Build();
 
+app.UseRouting();
 app.UseStaticFiles();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseRouting();
 
 app.MapControllerRoute("default",
     "{area:exists}/{controller=home}/{action=index}/{id?}");

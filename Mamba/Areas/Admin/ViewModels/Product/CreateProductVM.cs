@@ -17,7 +17,7 @@ namespace Mamba.Areas.Admin.ViewModels
         [Required(ErrorMessage = "Is Reqiured")]
         public int CategoryId { get; set; }
 
-        public ICollection<Category> Categories { get; set; }
+        public ICollection<Category>? Categories { get; set; }
 
         [Required(ErrorMessage = "Is Reqiured")]
         public IFormFile Photo { get; set; }

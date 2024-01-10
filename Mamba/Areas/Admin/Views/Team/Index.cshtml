@@ -1,1 +1,43 @@
-﻿@model Team
+﻿@model ICollection<Team>
+
+@{
+    int count = 0;
+}
+
+<div class="col-lg-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Team Table</h4>
+                <a class="btn btn-primary" asp-action="Create" asp-controller="Team">Create</a>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Settings</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <td>@count</td>
+                                <td><img src="~/assets/img//@item.Img"></td>
+                                <td>@item.Name</td>
+                                <td>@item.Position.Name</td>
+                                <td>
+                                    <a asp-action="Update" asp-controller="Team" asp-route-id="@item.Id" class="btn btn-primary">Update</a>
+                                    <a asp-action="Delete" asp-controller="Team" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

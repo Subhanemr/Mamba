@@ -1,1 +1,52 @@
 ﻿@model CreateTeamVM
+
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Default form</h4>
+            <p class="card-description">
+                Basic form layout
+            </p>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="Name">Name</label>
+                    <input asp-for="Name" class="form-control" placeholder="Name">
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TwitLink">TwitLink</label>
+                    <input asp-for="TwitLink" class="form-control" placeholder="TwitLink">
+                    <span asp-validation-for="TwitLink"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FaceLink">FaceLink</label>
+                    <input asp-for="FaceLink" class="form-control" placeholder="FaceLink">
+                    <span asp-validation-for="FaceLink"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="InstaLink">InstaLink</label>
+                    <input asp-for="InstaLink" class="form-control" placeholder="InstaLink">
+                    <span asp-validation-for="InstaLink"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LinkedLink">LinkedLink</label>
+                    <input asp-for="LinkedLink" class="form-control" placeholder="LinkedLink">
+                    <span asp-validation-for="LinkedLink"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Photo">Image</label>
+                    <input asp-for="Photo" class="form-control" placeholder="Image" accept="image/*">
+                    <span asp-validation-for="Photo"></span>
+                </div>
+                <div class="form-group">
+                    <select asp-for=PositionId class="form-control" asp-items="new SelectList(Model.Positions,nameof(Position.Id), nameof(Position.Name))">
+                        <option selected disabled>Choose Category</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light" asp-action="Index" asp-controller="Team">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

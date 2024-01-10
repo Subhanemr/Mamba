@@ -45,12 +45,12 @@ namespace Mamba.Areas.Admin.Controllers
                 }
                 return View(register);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction(nameof(Login));
         }
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction(nameof(Login));
         }
         public IActionResult LogIn()
         {
